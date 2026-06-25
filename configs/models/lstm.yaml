@@ -1,0 +1,4 @@
+type: lstm
+hidden_size: 64
+num_layers: 2
+dropout: 0.2

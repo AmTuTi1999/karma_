@@ -1,0 +1,11 @@
+# Default training hyperparameters shared across all datasets and architectures.
+# Dataset-specific overrides can be placed in configs/training/<dataset>.yaml.
+
+epochs: 50
+batch_size: 32
+learning_rate: 0.001
+use_scheduler: true
+scheduler_type: cosine
+dropout: 0.2
+clip_grad_norm: 1.0   # applied to TCN only
+seed: 42

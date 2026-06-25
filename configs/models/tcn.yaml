@@ -1,0 +1,4 @@
+type: tcn
+num_channels: [64, 64, 128]
+kernel_size: 3
+dropout: 0.2

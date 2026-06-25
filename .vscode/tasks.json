@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "run:karma_tcn_beijing (devcontainer)",
+      "type": "shell",
+      "command": "poetry",
+      "args": ["run", "python3", "${workspaceFolder}/karma_tcn_beijing.py"],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": [],
+      "runOptions": {},
+      // Ensure the task runs inside the container
+      "options": {
+        "shell": {
+          "executable": "/bin/bash",
+          "args": ["-c"]
+        }
+      }
+    }
+  ]
+}

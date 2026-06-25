@@ -1,0 +1,18 @@
+name: mock_var
+D: 6
+W: 10
+forecast_steps: 1
+data_dir: null  # synthetic; generated on-the-fly via dataset.var
+var_names:
+  - X1
+  - X2
+  - X3
+  - X4
+  - X5
+  - X6
+dataset_module: dataset.var
+synthetic: true
+checkpoints:
+  lstm: ./outputs/checkpoints/var_lstm
+  tcn: ./outputs/checkpoints/var_tcn
+results_dir: results/var

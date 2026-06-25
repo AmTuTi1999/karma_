@@ -1,0 +1,10 @@
+__pycache__/
+results/
+*.pyc
+
+# Checkpoints — keep only best.pt
+outputs/checkpoints/**/checkpoint_*.pt
+notebooks/
+data/raw/
+comparison_realdata_colab.ipynb
+karma_exp_mock_var.py

@@ -1,0 +1,22 @@
+name: beijing
+D: null # inferred from data at runtime
+W: 24
+forecast_steps: 1
+data_dir: /workspaces/karma_/data/generated/beijing_pm25
+var_names:
+  - pm2.5
+  - DEWP
+  - TEMP
+  - PRES
+  - Iws
+  - Is
+  - Ir
+  - cbwd_NE
+  - cbwd_NW
+  - cbwd_SE
+  - cbwd_cv
+dataset_module: dataset.beijing_pm2
+checkpoints:
+  lstm: ./outputs/checkpoints/bpm25_lstm
+  tcn: ./outputs/checkpoints/bpm25_tcn
+results_dir: results/beijing_pm25

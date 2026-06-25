@@ -1,0 +1,10 @@
+# TimeSHAP experiment hyperparameters
+# These are defaults; all can be overridden via CLI flags.
+
+eps: 0.05                  # temporal pruning tolerance (analogous to KARMA Δ^pred)
+baseline_strategy: mean    # 'zeros' | 'mean' | 'median'
+n_prune: 200               # windows used for global pruning certificate
+n_samples: 512             # KernelSHAP coalition samples per instance
+n_explain: 50              # instances averaged for global SHAP values
+mode: feature              # 'feature' (K*D players) | 'event' (K players)
+seed: 42

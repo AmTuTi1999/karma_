@@ -1,0 +1,10 @@
+# KARMA experiment hyperparameters
+# These are defaults; all can be overridden via CLI flags.
+
+N: 3 # bins per variable (keep <=3 when T_train < 10 000)
+eps: 0.05 # Delta^pred stopping tolerance (sole Pillar-2 certificate)
+lam: 0.025 # edge-trimming threshold for DAG recovery
+M: 100 # Monte Carlo draws per history for Pillar-3 kernel estimation
+n_pool_min: 10 # minimum suffix-pool size for reliable kernel estimates
+K_max: 10 # maximum lag order to search
+seed: 42

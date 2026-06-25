@@ -1,0 +1,92 @@
+repos:
+  # ── General hygiene ───────────────────────────────────────────────────────
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace        # removes trailing spaces
+      - id: end-of-file-fixer          # ensures files end with a newline
+      - id: mixed-line-ending          # normalises CRLF → LF
+        args: [--fix=lf]
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: [--maxkb=1000]
+      - id: detect-private-key
+      - id: debug-statements           # flags leftover print/breakpoint calls
+
+  # ── Python: Black (opinionated formatter) ────────────────────────────────
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        language_version: python3
+        args: [--line-length=88]
+
+  # ── Python: Ruff (fast linter + import sorter, replaces flake8/isort) ────
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.9
+    hooks:
+      - id: ruff                       # lint
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format                # ruff's own formatter (optional alongside Black)
+
+  # ── Python: pycodestyle (PEP 8 whitespace / line-length / spacing) ───────
+  - repo: https://github.com/PyCQA/pycodestyle
+    rev: 2.11.1
+    hooks:
+      - id: pycodestyle
+        args:
+          - --max-line-length=88
+          - --ignore=E203,W503          # black-compatible ignores
+
+  # ── Python: pydocstyle (docstring typesetting / formatting) ──────────────
+  - repo: https://github.com/PyCQA/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+        args: [--convention=google]
+        additional_dependencies: [tomli]
+
+  # ── JS/TS: Prettier (line spacing, indentation, code beauty) ─────────────
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        types_or:
+          - javascript
+          - jsx
+          - ts
+          - tsx
+          - json
+          - yaml
+          - markdown
+          - css
+          - scss
+        args: [--print-width=88, --single-quote, --trailing-comma=es5]
+
+  # ── JS/TS: ESLint ─────────────────────────────────────────────────────────
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.5.0
+    hooks:
+      - id: eslint
+        files: \.[jt]sx?$
+        types: [file]
+        additional_dependencies:
+          - eslint@9.5.0
+          - eslint-config-prettier@9.1.0
+
+  # ── YAML: yamllint ────────────────────────────────────────────────────────
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: [-d, relaxed]
+
+default_language_version:
+  python: python3.12
+
+ci:
+  autofix_prs: true
+  autoupdate_schedule: weekly

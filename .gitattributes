@@ -1,0 +1,8 @@
+# Git LFS — large binary data and model checkpoints
+data/**/*.npy    filter=lfs diff=lfs merge=lfs -text
+data/**/*.pkl    filter=lfs diff=lfs merge=lfs -text
+data/**/*.csv    filter=lfs diff=lfs merge=lfs -text
+data/**/*.gz     filter=lfs diff=lfs merge=lfs -text
+data/**/*.tsf    filter=lfs diff=lfs merge=lfs -text
+data/**/*.txt    filter=lfs diff=lfs merge=lfs -text
+outputs/**/*.pt  filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,57 @@
+{
+  "name": "etth1",
+  "display": "ETT-h1 (Electricity Transformer Temperature, hourly)",
+  "sequence_length": 24,
+  "prediction_horizon": 1,
+  "n_features": 7,
+  "feature_names": [
+    "HUFL",
+    "HULL",
+    "MUFL",
+    "MULL",
+    "LUFL",
+    "LULL",
+    "OT"
+  ],
+  "train_samples": 12170,
+  "val_samples": 1717,
+  "test_samples": 3461,
+  "data_shape": {
+    "X_train": [
+      12170,
+      24,
+      7
+    ],
+    "y_train": [
+      12170,
+      1,
+      7
+    ],
+    "X_val": [
+      1717,
+      24,
+      7
+    ],
+    "y_val": [
+      1717,
+      1,
+      7
+    ],
+    "X_test": [
+      3461,
+      24,
+      7
+    ],
+    "y_test": [
+      3461,
+      1,
+      7
+    ]
+  },
+  "format": "(N, seq_length, D)",
+  "split_fracs": {
+    "train": 0.7,
+    "val": 0.1,
+    "test": 0.2
+  }
+}
